@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket</title>
+</head>
+<body>
+<h2>{{data.title}}</h2>
+<p>{{data.description}}</p>
+<p>current status: {{data.get_status_display}}</p>
+<p>submited by: <a href="/user/{{data.usersubmited_id}}">{{data.usersubmited}}</a></p>
+{%if not data.status == "I" and not data.status == "N"%}
+{%if not data.usercompleted%}
+<p>Being worked on by: <a href="/user/{{data.userassigned_id}}">{{data.userassigned}}</a></p>
+{%endif%}
+{% if not data.status == "P"%}
+<p>Finished by: <a href="/user/{{data.usercompleted_id}}"> {{data.usercompleted}}</a></p>
+{%endif%}
+{%endif%}
+{%if not data.userassigned%}
+<a href="/ticket/{{data.id}}/inprogress/{{user.id}}">Do the ticket</a>
+{%else%}
+<a href="/ticket/{{data.id}}/edit/">Edit Ticket</a>
+{%if data.status != "D" and data.status != "I"%}
+<a href="/ticket/{{data.id}}/invalid/{{user.id}}">Mark Invalid</a>
+<a href="/ticket/{{data.id}}/done/{{user.id}}">Complete Ticket</a>
+{%endif%}
+{%endif%}
+<a href="/">Return home</a>
+</body>
+</html>

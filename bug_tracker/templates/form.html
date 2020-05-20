@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {%if user.is_authenticated%}
+    <title>Create a new Ticket</title>
+    {%else%}
+    <title>Login</title>
+    {%endif%}
+</head>
+<body>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{Form.as_p}}
+    {%if user.is_authenticated%}
+    <input type="submit" value="Click to create a ticket"><span> </span><a href="/">Return home</a>
+    {%else%}
+    <input type="submit" value="Click to login">
+    {%endif%}
+
+</form>
+
+</body>
+</html>
