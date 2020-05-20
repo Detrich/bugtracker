@@ -7,8 +7,16 @@
 <body>
 <h1>{{user}}</h1>
 <p>Created Tickets:</p>
+    {%for data in submited%}
+<p><a href="/ticket/{{data.id}}">{{data.title}}</a></p>
+    {%endfor%}
+<p>tickets working on:</p>
     {%for data in assigned%}
-<p><a href="/ticket/{{data.id}}?next={{}}">{{data.title}}</a></p>
+<p><a href="/ticket/{{data.id}}">{{data.title}}</a></p>
+    {%endfor%}
+<p>tickets finished:</p>
+{%for data in completed%}
+<p><a href="/ticket/{{data.id}}">{{data.title}}</a></p>
     {%endfor%}
 </body>
 </html>
