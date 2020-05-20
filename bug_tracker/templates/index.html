@@ -8,31 +8,47 @@
 <h1>Bug Tracker</h1>
 <p><a href="new/{{user.id}}">Create a New ticket</a></p>
 <p><a href="logout/">Logout</a></p>
+<div style="display:flex;flex-direction:row;justify-content:space-around;flex-wrap:wrap;">
+    <div style="flex-direction:column;flex:1 0 50%;box-sizing: border-box;text-align:center">
 <h2>New Tickets!</h2>
 {% for Ticket in data %}
     {%if Ticket.status == 'N'%}
-    <a href="/ticket/{{Ticket.id}}">{{Ticket.title}}<div>Created At: {{Ticket.time}}</div></a>
+        <p><div style="border:1px solid blue; width:40%;margin-left:auto;margin-right:auto">
+    <a href="/ticket/{{Ticket.id}}">{{Ticket.title}}<p><div>Created At: {{Ticket.time}}</div></a>
+    </div>
     {%endif%}
 {%endfor%}
+    </div>
+        <span style="flex-direction:column;flex:1 1 50%;box-sizing: border-box;text-align:center">
 <h2>In Progress Tickets</h2>
 {% for Ticket in data %}
     {%if Ticket.status == 'P'%}
-    <a href="/ticket/{{Ticket.id}}">{{Ticket.title}}<div>Created At: {{Ticket.time}}</div></a>
+            <p><div style="border:1px solid blue; width:40%;margin-left:auto;margin-right:auto">
+    <a href="/ticket/{{Ticket.id}}">{{Ticket.title}}<p><div>Created At: {{Ticket.time}}</div></a>
+        </div>
     {%endif%}
 {%endfor%}
-<h2>Finished Tickets</h2>
+        </span>
+            <div style="flex-direction:column;flex:1 0 50%;box-sizing: border-box;text-align:center">
+                <h2>Finished Tickets</h2>
 {% for Ticket in data %}
     {%if Ticket.status == 'D'%}
-    <a href="/ticket/{{Ticket.id}}">{{Ticket.title}}<div>Created At: {{Ticket.time}}</div></a>
+                <p><div style="border:1px solid blue; width:40%;margin-left:auto;margin-right:auto">
+    <a href="/ticket/{{Ticket.id}}">{{Ticket.title}}<p><div>Created At: {{Ticket.time}}</div></a>
+                    </div>
     {%endif%}
 {%endfor%}
+            </div>
+                <div style="flex-direction:column;flex:1 0 50%;box-sizing: border-box;text-align:center;">
 <h2>Invalid Tickets</h2>
 {% for Ticket in data %}
     {%if Ticket.status == 'I'%}
-    <a href="/ticket/{{Ticket.id}}">{{Ticket.title}}<div>Created At: {{Ticket.time}}</div></a>
+                    <p><div style="border:1px solid blue; width:40%;margin-left:auto;margin-right:auto">
+    <a href="/ticket/{{Ticket.id}}">{{Ticket.title}}<p><div>Created At: {{Ticket.time}}</div></a>
+                </div>
     {%endif%}
 {%endfor%}
-
+                </div>
 
 </body>
 </html>

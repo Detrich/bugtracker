@@ -5,18 +5,28 @@
     <title>{{user}}</title>
 </head>
 <body>
+<div style="text-align: center;">
 <h1>{{user}}</h1>
+</div>
+<div style="display:flex;flex-direction:row;justify-content:space-around">
+    <div style="flex-direction:column">
 <p>Created Tickets:</p>
     {%for data in submited%}
 <p><a href="/ticket/{{data.id}}">{{data.title}}</a></p>
     {%endfor%}
+        </div>
+    <div style="flex-direction:column">
 <p>tickets worked on:</p>
     {%for data in assigned%}
 <p><a href="/ticket/{{data.id}}">{{data.title}}</a></p>
     {%endfor%}
+        </div>
+    <div style="flex-direction:column">
 <p>tickets finished:</p>
 {%for data in completed%}
 <p><a href="/ticket/{{data.id}}">{{data.title}}</a></p>
     {%endfor%}
+        </div>
+</div>
 </body>
 </html>
