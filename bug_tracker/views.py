@@ -91,6 +91,7 @@ def editticket(request,ticketid):
     })
     return render(request,'form.html',{"Form":Form})
 
+@login_required
 def viewuser(request,userid):
     assigned = Ticket.objects.filter(userassigned_id=userid)
     completed = Ticket.objects.filter(usercompleted_id=userid)
