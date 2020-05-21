@@ -18,10 +18,11 @@
 {%endif%}
 {%endif%}
 {%if not data.userassigned%}
+<a href="/ticket/{{data.id}}/edit/">Edit Ticket</a>
 <a href="/ticket/{{data.id}}/inprogress/{{user.id}}">Do the ticket</a>
 {%else%}
-<a href="/ticket/{{data.id}}/edit/">Edit Ticket</a>
 {%if data.status != "D" and data.status != "I"%}
+<a href="/ticket/{{data.id}}/edit/">Edit Ticket</a>
 <a href="/ticket/{{data.id}}/invalid/{{user.id}}">Mark Invalid</a>
 <a href="/ticket/{{data.id}}/done/{{user.id}}">Complete Ticket</a>
 {%endif%}
